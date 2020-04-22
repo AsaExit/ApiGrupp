@@ -18,8 +18,9 @@ Grupp arbete Api
 ## Request Method
 ## -i, --include       Include protocol headers in the output (H/F)
 ## -H, --header LINE   Pass custom header LINE to server (H)
-curl -i -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1
 
+## 
+curl -i -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1
 
 ## Request response model:
 HTTP/1.1 200 OK     
@@ -58,6 +59,12 @@ curl -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1 | jq
 
 
 ## 
+curl -H GET  http://api.softhouse.rocks/users/3
+
+{"address":{"geo":{"lat":-68.6102,"lng":-47.0653},"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157"},"_id":"5e806d9f42fbde006b6b9ec7","id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","__v":0}Sofias-MacBook-Pro:ApiGrupp sofiajunell$ curl -H GET  http://api.softhouse.rocks/users/3
+
+
+## 
 $ curl -H "Content-Type:application/json" http://api.softhouse.rocks/posts/userId1 | jq 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -72,6 +79,89 @@ $ curl -H "Content-Type:application/json" http://api.softhouse.rocks/posts/userI
 }
 
 
+## 
+### curl -H GET  http://api.softhouse.rocks/users/3 | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   271  100   271    0     0    872      0 --:--:-- --:--:-- --:--:--   871
+{
+  "address": {
+    "geo": {
+      "lat": -68.6102,
+      "lng": -47.0653
+    },
+    "street": "Douglas Extension",
+    "suite": "Suite 847",
+    "city": "McKenziehaven",
+    "zipcode": "59590-4157"
+  },
+  "_id": "5e806d9f42fbde006b6b9ec7",
+  "id": 3,
+  "name": "Clementine Bauch",
+  "username": "Samantha",
+  "email": "Nathan@yesenia.net",
+  "__v": 0
+}
+
+##
+$ curl -i -X POST -H "Content-Type:application/json" http://api.softhouse.rocks/posts -d '{"title":"Hi,Karlstadd", "body":"Fresh as morning dew", "userId": "1"}'
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 115
+ETag: W/"73-sc6cjswQKZbxNrK9Hty0Yb8Od8Q"
+Date: Wed, 22 Apr 2020 15:54:30 GMT
+Via: 1.1 google
+
+{"_id":"5ea068b63636b200261814cd","body":"Fresh as morning dew","title":"Hi,Karlstadd","userId":1,"id":847,"__v":0}
+
+
+## curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H "accept: application/json"
+
+
+
+
+## curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H "accept: application/json" | JQ
+{
+    "_id": "5ea068b63636b200261814cd",
+    "body": "Fresh as morning dew",
+    "title": "Hi,Karlstadd",
+    "userId": 1,
+    "id": 847,
+    "__v": 0
+  }
+
+
+
+
+## PUT 
+curl -X PUT "https://api.softhouse.rocks/posts/847" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hi,malmo\",\"body\":\"Fresh as morning dew\",\"userId\":1}"
+
+ {
+    "_id": "5ea068b63636b200261814cd",
+    "body": "Fresh as morning dew",
+    "title": "Hi,malmo",
+    "userId": 1,
+    "id": 847,
+    "__v": 0
+  }
+
+## PATCH
+### curl -X PATCH "https://api.softhouse.rocks/posts/846" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Rostbiff och isterband \",\"body\":\"Griljerar och briljerar\",\"userId\":1}"
+ {
+    "_id": "5ea03f2b3075e40021162a5e",
+    "body": "Griljerar och briljerar",
+    "title": "Rostbiff och isterband ",
+    "userId": 1,
+    "id": 846,
+    "__v": 0
+  }
+
+
+## DELETE
+curl -X DELETE "https://api.softhouse.rocks/posts/847" -H "accept: application/json"
+## id 847 is missing! wohoo
 
 ## POST 
 
