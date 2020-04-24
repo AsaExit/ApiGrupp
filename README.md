@@ -1,23 +1,115 @@
 # ApiGrupp
 Grupp arbete Api
 
-## HTTP Protocol Basics
-## Request response model:
-## Request message
-## Resources identified using a Universal Resource Identifier (URI)
+#### HTTP Protocol Basics
+#### Request response model:
+#### Request message
+#### Resources identified using a Universal Resource Identifier (URI)
+#### Request Method
+#### Headers, Body, query
+#### Response
+#### Response code
+#### Headers och Body
+
+
+### Vi använder oss av http://api.softhouse.rocks 
+##### 1. GET    /posts..........List of Posts 
+##### 2. GET    /posts/{postId} Get a Post specified resource
+##### 3. POST   /posts..........Creat a new Post Ex Webb form
+##### 4. PUT    /posts/{postId} Replace a Post
+##### 5. PATCH  /posts/{postID} Update a Post
+##### 6. DELETE /posts/{postId} Delete a Post
+
+### Endpoints Example
+
+ GET     https://name.com/api/users
+ GET     https://name.com/api/users/1 or https://name.com/api/users/details/1
+ POST    https://name.com/api/users
+ PUT     https://name.com/api/users/1 or https://name.com/api/users/uppdate/1
+ DELETE  https://name.com/api/users/1 or https://name.com/api/users/delete/1
+
+
+### Authentication github´s API developer/github.com
+curl -H "Authentication: token OAUTH-TOKEN"https//api.github.com sending in the header
+curl https://api.github.com/?access_token=OAUTH-TOKEN in URI
+curl 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
+
+#### -i, --include       Include protocol headers in the output (H/F)
+#### -H, --header LINE   Pass custom header LINE to server (H)
+
+##### Request: -> 
+curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H  "accept: application/json" | jq
+curl -X GET "http://localhost:3000/posts?userId=1" -H  "accept: application/json"
+
+#### Respons: 
+https://api.softhouse.rocks/posts?userId=1
+
+#### Response headers:
+content-type: application/json; charset=utf-8 
+#### Part of a Respons Body
+{
+    "_id": "5ea03f2b3075e40021162a5e",
+    "body": "Griljerar och briljerar",
+    "title": "Rostbiff och isterband ",
+    "userId": 1,
+    "id": 846,
+    "__v": 0
+  },
+  {
+    "_id": "5ea143518e9e2e7dc0da6f8a",
+    "id": 1,
+    "__v": 0,
+    "body": "get fed",
+    "title": "replaced kid",
+    "userId": 1
+  },
+  {
+    "_id": "5ea146fb3636b200261814ce",
+    "body": "Fresh as morning dew",
+    "title": "Hi, World",
+    "userId": 1,
+    "id": 849,
+    "__v": 0
+  },
+  {
+    "_id": "5ea147253636b200261814cf",
+    "body": "Fresh as morning dew",
+    "title": "Hi, World",
+    "userId": 1,
+    "id": 850,
+    "__v": 0
+  }
+]
+#### POST creat a new Post. 
+#### Object
+Post{
+title	string
+body	string
+userId	integer
+ 
+}
+##### 
+curl -X POST "https://api.softhouse.rocks/posts" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"title\":\"SweetApi\",\"body\":\"Rostbiff\",\"userId\":3}"
+
+// Result: 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   148  100    99  100    49   1042    515 --:--:-- --:--:-- --:--:--  1574{"_id":"5ea154f3f7e5830021385834","body":"Rostbiff","title":"SweetApi","userId":3,"id":853,"__v":0}
+
+Next get: To see result:curl -X GET "https://api.softhouse.rocks/posts?userId=3" -H  "accept: application/json" | jq
+ {
+    "_id": "5ea15467f7e5830021385833",
+    "body": "Rostbiff",
+    "title": "SweetApi",
+    "userId": 3,
+    "id": 852,
+    "__v": 0
+  },
+
+
 ## Request Method
-## Headers, Body, query
-## Response
-## Response code
-## Headers och Body
-
-
-## Vi använder oss av http://api.softhouse.rocks 
-## GET - Metoden 
-
-## Request Method
-## -i, --include       Include protocol headers in the output (H/F)
-## -H, --header LINE   Pass custom header LINE to server (H)
+#### -i, --include       Include protocol headers in the output (H/F)
+#### -H, --header LINE   Pass custom header LINE to server (H)
 
 ## 
 curl -i -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1
