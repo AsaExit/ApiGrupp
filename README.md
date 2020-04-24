@@ -278,6 +278,56 @@ Via: 1.1 google
 
 
 
+## PATCH 
+1. TO PATCH A POST.
+
+FIRST, GET A LIST OF POSTS: 
+$ curl http://api.softhouse.rocks/POSTS | JQ
+
+RESPONSE/response body: 
+
+]
+NEXT STEP, TO PATCH A POST: 
+curl -X PATCH "https://api.softhouse.rocks/posts/853" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hejsan\",\"body\":\"Hur mar du\",\"userId\":3}"
+RESPONSE: 
+{"n":1,"nModified":0,"opTime":{"ts":"6819234831306588161","t":149},"electionId":"7fffffff0000000000000095","ok":1,"operationTime":"6819234831306588161","$clusterTime":{"clusterTime":"6819234831306588161","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+TO CHECK CHANGE:
+curl http://api.softhouse.rocks/POSTS | JQ
+RESPONSE:
+{
+    "_id": "5ea154f3f7e5830021385834",
+    "body": "Hur mar du",
+    "title": "Hejsan",
+    "userId": 3,
+    "id": 853,
+    "__v": 0
+  }
+  ______________________________________________________________-
+2. TO GET AND PATCH A SPECIFIC POST 
+FIRST, GET A SPECIFIC POST:
+
+curl -X GET "https://api.softhouse.rocks/posts?userId=1337" -H "accept: application/json"|JQ
+
+RESPONSE:
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   113  100   113    0     0    330      0 --:--:-- --:--:-- --:--:--   330
+[
+  {
+    "_id": "5ea141aff7e5830021385831",
+    "body": "also executes",
+    "title": "does execute",
+    "userId": 1337,
+    "id": 848,
+    "__v": 0
+  }
+]
+SECOND, PATCH THE POST: 
+curl -X PATCH "https://api.softhouse.rocks/posts/1337" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Unicorn\",\"body\":\"Dust\",\"userId\":100}
+To check if pached: 
+
+
+## DELETE 
 
 
 
