@@ -29,20 +29,21 @@ Headers och Body
 
 ### Endpoints Example
 
- GET     https://name.com/api/users
- GET     https://name.com/api/users/1 or https://name.com/api/users/details/1
- POST    https://name.com/api/users
- PUT     https://name.com/api/users/1 or https://name.com/api/users/uppdate/1
- DELETE  https://name.com/api/users/1 or https://name.com/api/users/delete/1
+ 1. GET     https://name.com/api/users
+ 2. GET     https://name.com/api/users/1 or https://name.com/api/users/details/1
+ 3. POST    https://name.com/api/users
+ 4. PUT     https://name.com/api/users/1 or https://name.com/api/users/uppdate/1
+ 5. DELETE  https://name.com/api/users/1 or https://name.com/api/users/delete/1
 
 
 ### Authentication github´s API developer/github.com
-curl -H "Authentication: token OAUTH-TOKEN"https//api.github.com sending in the header
-curl https://api.github.com/?access_token=OAUTH-TOKEN in URI
-curl 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
+1. curl -H "Authentication: token OAUTH-TOKEN"https//api.github.com sending in the header
+2. curl https://api.github.com/?access_token=OAUTH-TOKEN in URI
+3. curl 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
 
 #### -i, --include       Include protocol headers in the output (H/F)
 #### -H, --header LINE   Pass custom header LINE to server (H)
+#### -X  --request COMMAND  Specify request command to use
 
 ##### Request: -> 
 curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H  "accept: application/json" | jq
@@ -256,6 +257,57 @@ curl -X PUT "https://api.softhouse.rocks/posts/847" -H "accept: application/json
     "id": 846,
     "__v": 0
   }
+
+## PATCH 
+1. TO PATCH A POST.
+
+FIRST, GET A LIST OF POSTS: 
+$ curl http://api.softhouse.rocks/POSTS | JQ
+
+RESPONSE/response body: 
+
+]
+NEXT STEP, TO PATCH A POST: 
+curl -X PATCH "https://api.softhouse.rocks/posts/853" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hejsan\",\"body\":\"Hur mar du\",\"userId\":3}"
+RESPONSE: 
+{"n":1,"nModified":0,"opTime":{"ts":"6819234831306588161","t":149},"electionId":"7fffffff0000000000000095","ok":1,"operationTime":"6819234831306588161","$clusterTime":{"clusterTime":"6819234831306588161","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+TO CHECK CHANGE:
+curl http://api.softhouse.rocks/POSTS | JQ
+RESPONSE:
+{
+    "_id": "5ea154f3f7e5830021385834",
+    "body": "Hur mar du",
+    "title": "Hejsan",
+    "userId": 3,
+    "id": 853,
+    "__v": 0
+  }
+  ______________________________________________________________-
+2. TO GET AND PATCH A SPECIFIC POST 
+FIRST, GET A SPECIFIC POST:
+
+curl -X GET "https://api.softhouse.rocks/posts?userId=1337" -H "accept: application/json"|JQ
+
+RESPONSE:
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   113  100   113    0     0    330      0 --:--:-- --:--:-- --:--:--   330
+[
+  {
+    "_id": "5ea141aff7e5830021385831",
+    "body": "also executes",
+    "title": "does execute",
+    "userId": 1337,
+    "id": 848,
+    "__v": 0
+  }
+]
+SECOND, PATCH THE POST: 
+curl -X PATCH "https://api.softhouse.rocks/posts/1337" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Unicorn\",\"body\":\"Dust\",\"userId\":100}
+To check if pached: 
+
+
+## DELETE 
 
 
 ## DELETE
