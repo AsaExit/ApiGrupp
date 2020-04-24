@@ -13,6 +13,13 @@ Response code
 Headers och Body
 
 
+###HTTP status codes
+##### HTTP/1.1 200 OK  
+##### 300 - Redirect
+##### 400/404 - Page not found
+##### 500 - Authentication 
+SKRIV MER HÄR
+
 ### Vi använder oss av http://api.softhouse.rocks 
 ##### 
 1. GET    /posts..........List of Posts 
@@ -54,6 +61,8 @@ https://api.softhouse.rocks/posts?userId=1
 
 #### Response headers:
 content-type: application/json; charset=utf-8 
+(when the server responds, it sends information back).
+
 #### Part of a Respons Body
 {
     "_id": "5ea03f2b3075e40021162a5e",
@@ -134,12 +143,12 @@ Via: 1.1 google
 
 ## Statuskoden var framgångsrik, 200. 
 ## It's a header. It doesn't tell the browser anything except that the application is powered by Express (should you wish to look at that in chrome dev tools). Express is a server side framework. https://www.reddit.com/r/node/comments/3k9ij6/does_anyone_know_what_the_xpoweredby_express_is/
-## 
-## 
+## SKRIV MER HÄR 
+## SKRIV MER HÄR 
 ## Content-Length: 316 posts. Is used to indicate the size of the entire body. The content-length is the size of the compressed message body, in "octets". 
 ## The ETag or entity tag is part of HTTP, the protocol for the World Wide Web. It is one of several mechanisms that HTTP provides for Web cache validation. 
-## 
-## 
+## SKRIV MER HÄR 
+## SKRIV MER HÄR 
 
 
 ## 
