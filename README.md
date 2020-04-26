@@ -133,17 +133,17 @@ Next get: To see result:curl -X GET "https://api.softhouse.rocks/posts?userId=3"
 curl -i -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1
 
 ## Request response model:
-##HTTP/1.1 200 OK     
-##X-Powered-By: Express
-##Access-Control-Allow-Origin: *
-##Content-Type: application/json; charset=utf-8
-##Content-Length: 316
-##ETag: W/"13c-iqD6A3ivz4dRZ1d/uIZLXBts6BU"
-##Date: Tue, 21 Apr 2020 08:28:50 GMT
-##Via: 1.1 google
+HTTP/1.1 200 OK     
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 316
+ETag: W/"13c-iqD6A3ivz4dRZ1d/uIZLXBts6BU"
+Date: Tue, 21 Apr 2020 08:28:50 GMT
+Via: 1.1 google
 
-## Statuskoden var framgångsrik, 200. 
-## It's a header. It doesn't tell the browser anything except that the application is powered by Express (should you wish to look at that in chrome dev tools). Express is a server side framework. https://www.reddit.com/r/node/comments/3k9ij6/does_anyone_know_what_the_xpoweredby_express_is/
+## Statuscode 200 OK.
+## It tells the browser that the application is powered by Express (should you wish to look at that in chrome dev tools). Express is a server side framework. https://www.reddit.com/r/node/comments/3k9ij6/does_anyone_know_what_the_xpoweredby_express_is/
 ## The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin. For requests without credentials, the literal value "*" can be specified, as a wildcard; the value tells browsers to allow requesting code from any origin to access the resource. Attempting to use the wildcard with credentials will result in an error.
 ## Content-type: application/json; charset=utf-8 designates the content to be in JSON format, encoded in the UTF-8 character encoding.
 ## Content-Length: 316 posts. Is used to indicate the size of the entire body. The content-length is the size of the compressed message body, in "octets". 
@@ -230,8 +230,6 @@ Via: 1.1 google
 ## curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H "accept: application/json"
 
 
-
-
 ## curl -X GET "https://api.softhouse.rocks/posts?userId=1" -H "accept: application/json" | JQ
 {
     "_id": "5ea068b63636b200261814cd",
@@ -241,7 +239,6 @@ Via: 1.1 google
     "id": 847,
     "__v": 0
   }
-
 
 
 
