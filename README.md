@@ -1,7 +1,6 @@
 # ApiGrupp
 Grupparbete Api
 
-
 ### HTTP Protocol Basics
 ##### Request response model:
 ##### Request message
@@ -11,7 +10,7 @@ Grupparbete Api
 ##### Response 
 ##### Response code
 ##### Headers och Body. 
-
+## 
 
 ### HTTP status codes
 ##### 1xx - Informational 
@@ -19,7 +18,7 @@ Grupparbete Api
 ##### 3xx - Redirection
 ##### 4xx - Client error - 404 - Page not found
 ##### 5xx - Server error 
-
+## 
 
 ### Vi använder oss av http://api.softhouse.rocks 
 ##### 1. GET    /posts..........List of Posts 
@@ -27,9 +26,7 @@ Grupparbete Api
 ##### 3. POST   /posts..........Creat a new Post Ex Webb form
 ##### 4. PUT    /posts/{postId} Replace a Post
 ##### 5. PATCH  /posts/{postID} Update a Post
-##### 6. DELETE /posts/{postId} Delete a Post
-
-
+##### 6. DELETE /posts/{postId} Delete a Post 
 
 ### Endpoints Example
  ##### 1. GET     https://name.com/api/users
@@ -37,13 +34,13 @@ Grupparbete Api
  ##### 3. POST    https://name.com/api/users
  ##### 4. PUT     https://name.com/api/users/1 or https://name.com/api/users/uppdate/1
  ##### 5. DELETE  https://name.com/api/users/1 or https://name.com/api/users/delete/1
-
+## 
 
 ### Authentication github´s API developer/github.com
 1. curl -H "Authentication: token OAUTH-TOKEN"https//api.github.com sending in the header
 2. curl https://api.github.com/?access_token=OAUTH-TOKEN in URI
 3. curl 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
-
+## 
 
 #### -i, --include       Include protocol headers in the output (H/F)
 #### -H, --header LINE   Pass custom header LINE to server (H)
@@ -96,11 +93,11 @@ content-type: application/json; charset=utf-8
   }
 ]
 #### POST creat a new Post. 
-#### Object
-Post{
-title	string
-body	string
-userId	integer
+##### Object
+##### Post{
+##### title	string
+##### body	string
+##### userId	integer
 }
 
 ## 
@@ -115,7 +112,7 @@ curl -i -H "Content-Type:application/json" http://api.softhouse.rocks/posts/1
 #### ETag: W/"13c-iqD6A3ivz4dRZ1d/uIZLXBts6BU" - The ETag or entity tag is part of HTTP, the protocol for the World Wide Web. It is one of several mechanisms that HTTP provides for Web cache validation. 
 #### Date: Tue, 21 Apr 2020 08:28:50 GMT Date
 #### Via: 1.1 google - The Via general header is added by proxies, both forward and reverse proxies, and can appear in the request headers and the response headers. It is used for tracking message forwards, avoiding request loops, and identifying the protocol capabilities of senders along the request/response chain.
-
+##
 
 ## GET 
 #### curl -H GET  http://api.softhouse.rocks/users/3 | jq
