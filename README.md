@@ -15,7 +15,7 @@ Headers och Body
 
 ###HTTP status codes
 ##### 1xx - Informational 
-##### 2xx - Success - 201 Created - 
+##### 2xx - Success - 201 Created 
 ##### 3xx - Redirection
 ##### 4xx - Client error - 404 - Page not found
 ##### 5xx - Server error 
@@ -267,23 +267,16 @@ curl -X PUT "https://api.softhouse.rocks/posts/847" -H "accept: application/json
     "id": 846,
     "__v": 0
   }
+  
+  _____________________________________
 
 ## PATCH 
-1. TO PATCH A POST.
+TO PATCH A POST.
 
-FIRST, GET A LIST OF POSTS: 
-$ curl http://api.softhouse.rocks/POSTS | JQ
+1. FIRST, GET A LIST OF POSTS: 
+curl http://api.softhouse.rocks/POSTS | JQ
 
 RESPONSE/response body: 
-
-]
-NEXT STEP, TO PATCH A POST: 
-curl -X PATCH "https://api.softhouse.rocks/posts/853" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hejsan\",\"body\":\"Hur mar du\",\"userId\":3}"
-RESPONSE: 
-{"n":1,"nModified":0,"opTime":{"ts":"6819234831306588161","t":149},"electionId":"7fffffff0000000000000095","ok":1,"operationTime":"6819234831306588161","$clusterTime":{"clusterTime":"6819234831306588161","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
-TO CHECK CHANGE:
-curl http://api.softhouse.rocks/POSTS | JQ
-RESPONSE:
 {
     "_id": "5ea154f3f7e5830021385834",
     "body": "Hur mar du",
@@ -292,33 +285,50 @@ RESPONSE:
     "id": 853,
     "__v": 0
   }
-  ______________________________________________________________-
-2. TO GET AND PATCH A SPECIFIC POST 
-FIRST, GET A SPECIFIC POST:
 
-curl -X GET "https://api.softhouse.rocks/posts?userId=1337" -H "accept: application/json"|JQ
+
+2. NEXT STEP, TO PATCH A POST: 
+curl -X PATCH "https://api.softhouse.rocks/posts/853" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Unicorn Dust\",\"body\":\"Is pink\",\"userId\":3}"
+
+
+RESPONSE: 
+{"n":1,"nModified":0,"opTime":{"ts":"6819927566581760001","t":157},"electionId":"7fffffff000000000000009d","ok":1,"operationTime":"6819927566581760001","$clusterTime":{"clusterTime":"6819927566581760001","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+
+3. TO CHECK CHANGE:
+curl -X GET "https://api.softhouse.rocks/posts?userId=3" -H "accept: application/json" | jq
 
 RESPONSE:
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   113  100   113    0     0    330      0 --:--:-- --:--:-- --:--:--   330
-[
   {
-    "_id": "5ea141aff7e5830021385831",
-    "body": "also executes",
-    "title": "does execute",
-    "userId": 1337,
-    "id": 848,
+    "_id": "5ea154f3f7e5830021385834",
+    "body": "Is pink",
+    "title": "Unicorn Dust",
+    "userId": 3,
+    "id": 853,
     "__v": 0
   }
-]
-SECOND, PATCH THE POST: 
-curl -X PATCH "https://api.softhouse.rocks/posts/1337" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Unicorn\",\"body\":\"Dust\",\"userId\":100}
-To check if pached: 
-
-
+  
 ## DELETE 
+TO DELETE A POST
+1. FIRST, GET A LIST OF POSTS, THEN PICK ONE
+curl http://api.softhouse.rocks/POSTS | JQ
 
+RESPONSE (PICKED POST 853): 
+  {
+    "_id": "5ea154f3f7e5830021385834",
+    "body": "Is pink",
+    "title": "Unicorn Dust",
+    "userId": 3,
+    "id": 853,
+    "__v": 0
+  }
+  
+  2. TO DELETE POST 853
+  curl -X DELETE "https://api.softhouse.rocks/posts/853" -H "accept: application/json"
+  
+  3. CHECK TO SEE IF DELETED:
+  curl -X GET "https://api.softhouse.roc" -H "accept: application/json"|jq
+ 
+_____________________________
 
 ## DELETE
 curl -X DELETE "https://api.softhouse.rocks/posts/847" -H "accept: application/json"
