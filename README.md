@@ -63,7 +63,7 @@ https://api.softhouse.rocks/posts?userId=1
 content-type: application/json; charset=utf-8 
 (when the server responds, it sends information back).
 
-#### Part of a Respons Body
+#### Part of a Respons
 {
     "_id": "5ea03f2b3075e40021162a5e",
     "body": "Griljerar och briljerar",
