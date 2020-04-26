@@ -14,11 +14,12 @@ Headers och Body
 
 
 ###HTTP status codes
-##### HTTP/1.1 200 OK  
-##### 300 - Redirect
-##### 400/404 - Page not found
-##### 500 - Authentication 
-SKRIV MER HÄR
+##### 1xx - Informational 
+##### 2xx - Success - 201 Created - 
+##### 3xx - Redirection
+##### 4xx - Client error - 404 - Page not found
+##### 5xx - Server error 
+
 
 ### Vi använder oss av http://api.softhouse.rocks 
 ##### 
