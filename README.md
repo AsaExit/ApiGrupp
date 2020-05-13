@@ -34,12 +34,12 @@ Vi använder oss av http://api.softhouse.rocks
 | CONNECT |– Används med proxy-servrar som kan fungera som SSL-tunnlar. |
 
 | ------ | ------ |
-| GET |   /posts..........List of Posts |
-| GET |   /posts/{postId} Get a Post specified resource|
-| POST |   /posts..........Creat a new Post Ex Webb form|
-| PUT |   /posts/{postId} Replace a Post|
-| PATCH|  /posts/{postID} Update a Post|
-| DELETE | /posts/{postId} Delete a Post |
+| GET |  - /posts..........List of Posts. |
+| GET |   -/posts/{postId} Get a Post specified resource.|
+| POST |  - /posts..........Creat a new Post Ex Webb form.|
+| PUT |   -/posts/{postId} Replace a Post.|
+| PATCH|  -/posts/{postID} Update a Post.|
+| DELETE | -/posts/{postId} Delete a Post. |
 
 ### Endpoints Example
  ##### 1. GET     https://name.com/api/users
