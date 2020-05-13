@@ -22,7 +22,7 @@ Headers och Body.
 ##### 5xx - Server error 
 ## 
 
-### Vi använder oss av http://api.softhouse.rocks 
+Vi använder oss av http://api.softhouse.rocks 
 
 | ------ | ------ |
 | GET |   /posts..........List of Posts |
