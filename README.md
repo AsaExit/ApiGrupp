@@ -26,6 +26,7 @@ Vi använder oss av http://api.softhouse.rocks
 | Method | what it dose |
 | ------ | ------ |
 | GET |- /posts..........List of Posts |
+| GET | /posts/{postId} Get a Post specified resource.|
 | POST |– Sänder någon form av information till servern, utöver själva förfrågan, vanligen motsvarande en webblankett. Detta används dels då förfrågan ändrar information på servern, såsom då man gör en bokning, dels då innehållet väntas vara större än vad som är lämpligt att hantera som en webbadress (eller annars olämpligt, såsom lösenord). |
 | PATCH |– Uppdaterar objecktet och dess innehåll till det som skickas med, här kan du uppdatera enstaka värden.|
 | DELETE |– Raderar den utpekade filen. Detta kommando används sällan och många webbservrar har inget stöd för det. |
@@ -35,7 +36,7 @@ Vi använder oss av http://api.softhouse.rocks
 
 | ------ | ------ |
 | GET |  - /posts..........List of Posts. |
-| GET |   -/posts/{postId} Get a Post specified resource.|
+| GET |   -|
 | POST |  - /posts..........Creat a new Post Ex Webb form.|
 | PUT |   -/posts/{postId} Replace a Post.|
 | PATCH|  -/posts/{postID} Update a Post.|
